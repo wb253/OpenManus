@@ -10,15 +10,15 @@
 
 Manus 非常棒，但 OpenManus 无需邀请码即可实现任何创意 🛫！
 
-我们来自 [@MetaGPT](https://github.com/geekan/MetaGPT) 的团队成员 [@mannaandpoem](https://github.com/mannaandpoem) [@XiangJinyu](https://github.com/XiangJinyu) [@MoshiQAQ](https://github.com/MoshiQAQ) [@didiforgithub](https://github.com/didiforgithub) 在 3 小时内完成了开发！
+**新功能：** 由 **云栖AI** 倾力打造的全新Web应用界面现已推出！更直观、便捷地与OpenManus进行交互，让您的创意即刻实现！
 
-这是一个简洁的实现方案，欢迎任何建议、贡献和反馈！
+感谢 MetaGPT 团队提供的 OpenManus 基础框架。
 
 用 OpenManus 开启你的智能体之旅吧！
 
 ## 项目演示  
 
-<video src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" data-canonical-src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px"></video>
+<img src="assets/webapp.png" alt="OpenManus Web App" width="800" />
 
 ## 安装指南
 
@@ -71,13 +71,24 @@ api_key = "sk-..."  # 替换为真实 API 密钥
 ```
 
 ## 快速启动
-一行命令运行 OpenManus：
+
+### 命令行模式
+通过终端运行 OpenManus：
 
 ```bash
 python main.py
 ```
 
-然后通过终端输入你的创意！
+### Web 界面模式
+体验由 **云栖AI** 开发的全新Web交互界面：
+
+```bash
+python main.py --web
+# 或直接使用
+python web_run.py
+```
+
+Web界面让您可以通过浏览器直观地与OpenManus交流，更加便捷地实现您的创意！
 
 如需体验开发中版本，可运行：
 
@@ -96,14 +107,14 @@ python run_flow.py
 - [ ] 运行回放
 - [ ] 强化学习微调模型
 - [ ] 全面的性能基准测试
+- [ ] Web界面功能增强
 
-<!-- ## 交流群
-加入我们的交流群，与其他开发者分享经验！
+## 交流群
+加入我们的飞书交流群，与其他开发者分享经验！
 
 <div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/community_group_9.jpg" alt="OpenManus 交流群9" width="300" />
-    <img src="assets/community_group_10.jpg" alt="OpenManus 交流群10" width="300" />
-</div> -->
+    <img src="assets/community_group.jpg" alt="OpenManus 交流群" width="300" />
+</div>
 
 ## Star 数量
 
@@ -113,4 +124,4 @@ python run_flow.py
 
 特别感谢 [anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo) 和 [broswer-use](https://github.com/browser-use/browser-use) 为本项目提供的基础支持！
 
-OpenManus 由 MetaGPT 社区的贡献者共同构建，感谢这个充满活力的智能体开发者社区！
+OpenManus 由 **云栖AI** 基于 MetaGPT 社区的框架共同构建，感谢这个充满活力的智能体开发者社区！

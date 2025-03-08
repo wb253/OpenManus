@@ -9,15 +9,15 @@
 # OpenManus 🙋
 Manus is incredible, but OpenManus can achieve any ideas without an Invite Code 🛫!
 
-Our team members [@mannaandpoem](https://github.com/mannaandpoem) [@XiangJinyu](https://github.com/XiangJinyu) [@MoshiQAQ](https://github.com/MoshiQAQ) [@didiforgithub](https://github.com/didiforgithub) from [@MetaGPT](https://github.com/geekan/MetaGPT) built it within 3 hours!
+**New Feature:** The brand new Web application interface, passionately crafted by **Yunqi AI**, is now available! Interact with OpenManus more intuitively and conveniently, bringing your ideas to life instantly!
 
-It's a simple implementation, so we welcome any suggestions, contributions, and feedback!
+Thanks to the MetaGPT team for providing the basic framework for OpenManus.
 
 Enjoy your own agent with OpenManus!
 
 ## Project Demo
 
-<video src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" data-canonical-src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px"></video>
+<img src="assets/webapp.png" alt="OpenManus Web App" width="800" />
 
 ## Installation
 
@@ -70,13 +70,24 @@ api_key = "sk-..."  # Replace with your actual API key
 ```
 
 ## Quick Start
-One line for run OpenManus:
+
+### Terminal Mode
+Run OpenManus from the terminal:
 
 ```bash
 python main.py
 ```
 
-Then input your idea via terminal!
+### Web Interface Mode
+Experience the new interactive web interface developed by **Yunqi AI**:
+
+```bash
+python main.py --web
+# or directly use
+python web_run.py
+```
+
+The web interface allows you to interact with OpenManus through your browser, making it more intuitive and convenient to bring your ideas to life!
 
 For unstable version, you also can run:
 
@@ -95,14 +106,15 @@ Or contact @mannaandpoem via 📧email: mannaandpoem@gmail.com
 - [ ] Replay
 - [ ] RL Fine-tuned Models
 - [ ] Comprehensive Benchmarks
+- [ ] Web Interface Enhancements
 
-<!-- ## Community Group
-Join our networking group and share your experience with other developers! -->
+## Community Group
+Join our networking group on Feishu and share your experience with other developers!
 
-<!-- <div align="center" style="display: flex; gap: 20px;">
-    <img src="assets/community_group_9.jpg" alt="OpenManus 交流群7" width="300" />
-    <img src="assets/community_group_10.jpg" alt="OpenManus 交流群8" width="300" />
-</div> -->
+<div align="center" style="display: flex; gap: 20px;">
+    <img src="assets/community_group.jpg" alt="OpenManus 交流群" width="300" />
+</div>
+
 ## Star History
 
 [![Star History Chart](https://api.star-history.com/svg?repos=mannaandpoem/OpenManus&type=Date)](https://star-history.com/#mannaandpoem/OpenManus&Date)
@@ -111,4 +123,4 @@ Join our networking group and share your experience with other developers! -->
 
 Thanks to [anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo) and [broswer-use](https://github.com/browser-use/browser-use) for providing basic support for this project!
 
-OpenManus is built by contributors from MetaGPT. Huge thanks to this agent community!
+OpenManus is built by **Yunqi AI** based on the framework from MetaGPT community. Huge thanks to this agent community!
