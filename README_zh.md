@@ -13,15 +13,21 @@ Manus 非常棒，但 OpenManus 无需邀请码即可实现任何创意 🛫！
 和 [@Xinyu Zhang](https://x.com/xinyzng) 来自 [@MetaGPT](https://github.com/geekan/MetaGPT) 等组织，我们在 3
 小时内完成了原型开发并持续迭代中！
 
-感谢 MetaGPT 团队提供的 OpenManus 基础框架。
+这是一个简洁的实现方案，欢迎任何建议、贡献和反馈！
 
 用 OpenManus 开启你的智能体之旅吧！
 
 我们也非常高兴地向大家介绍 [OpenManus-RL](https://github.com/OpenManus/OpenManus-RL)，这是一个专注于基于强化学习（RL，例如 GRPO）的方法来优化大语言模型（LLM）智能体的开源项目，由来自UIUC 和 OpenManus 的研究人员合作开发。
 
+## Web界面预览
+
+![OpenManus Web界面](assets/interface.png)
+
+Web界面由 [@YunQiAI](https://github.com/YunQiAI) 开发。
+
 ## 项目演示
 
-<img src="assets/webapp.png" alt="OpenManus Web App" width="800" />
+<video src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" data-canonical-src="https://private-user-images.githubusercontent.com/61239030/420168772-6dcfd0d2-9142-45d9-b74e-d10aa75073c6.mp4?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3NDEzMTgwNTksIm5iZiI6MTc0MTMxNzc1OSwicGF0aCI6Ii82MTIzOTAzMC80MjAxNjg3NzItNmRjZmQwZDItOTE0Mi00NWQ5LWI3NGUtZDEwYWE3NTA3M2M2Lm1wND9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNTAzMDclMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjUwMzA3VDAzMjIzOVomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPTdiZjFkNjlmYWNjMmEzOTliM2Y3M2VlYjgyNDRlZDJmOWE3NWZhZjE1MzhiZWY4YmQ3NjdkNTYwYTU5ZDA2MzYmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.UuHQCgWYkh0OQq9qsUWqGsUbhG3i9jcZDAMeHjLt5T4" controls="controls" muted="muted" class="d-block rounded-bottom-2 border-top width-fit" style="max-height:640px; min-height: 200px"></video>
 
 ## 安装指南
 
@@ -115,16 +121,22 @@ api_key = "sk-..."  # 替换为真实 API 密钥
 python main.py
 ```
 
-### Web 界面模式
-体验由 **云栖AI** 开发的全新Web交互界面：
+然后通过终端输入你的创意！
+
+### Web界面
+
+您也可以通过用户友好的Web界面使用OpenManus：
 
 ```bash
-python main.py --web
-# 或直接使用
-python web_run.py
+python app/web/app.py
 ```
 
-Web界面让您可以通过浏览器直观地与OpenManus交流，更加便捷地实现您的创意！
+然后打开浏览器，访问`http://localhost:8000`即可使用Web界面。Web界面提供以下功能：
+
+- 通过类聊天界面与OpenManus交互
+- 实时监控AI思考过程
+- 查看和访问工作区文件
+- 直观地查看执行进度
 
 如需体验开发中版本，可运行：
 
@@ -166,4 +178,4 @@ python run_flow.py
 特别感谢 [anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo)
 和 [browser-use](https://github.com/browser-use/browser-use) 为本项目提供的基础支持！
 
-OpenManus 由 **云栖AI** 基于 MetaGPT 社区的框架共同构建，感谢这个充满活力的智能体开发者社区！
+OpenManus 由 MetaGPT 社区的贡献者共同构建，感谢这个充满活力的智能体开发者社区！
