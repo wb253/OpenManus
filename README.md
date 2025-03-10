@@ -1,25 +1,34 @@
-<p align="left">
-    <a href="README_zh.md">中文</a>&nbsp ｜ &nbspEnglish&nbsp
-</p>
+English | [中文](README_zh.md)
 
-<p align="left">
-    <a href="https://discord.gg/6dn7Sa3a"><img src="https://dcbadge.vercel.app/api/server/DYn29wFk9z?style=flat" alt="Discord Follow"></a>
-</p>
+[![GitHub stars](https://img.shields.io/github/stars/mannaandpoem/OpenManus?style=social)](https://github.com/gregpr07/browser-use/stargazers) &ensp;
+[![Twitter Follow](https://img.shields.io/twitter/follow/openmanus?style=social)](https://twitter.com/openmanus) &ensp;
+[![Discord Follow](https://dcbadge.vercel.app/api/server/https://discord.gg/6dn7Sa3a?style=flat)](https://discord.gg/6dn7Sa3a) &ensp;
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-# OpenManus 🙋
-Manus is incredible, but OpenManus can achieve any ideas without an Invite Code 🛫!
+# 👋 OpenManus
 
-**New Feature:** The brand new Web application interface, passionately crafted by **Yunqi AI**, is now available! Interact with OpenManus more intuitively and conveniently, bringing your ideas to life instantly!
+Manus is incredible, but OpenManus can achieve any idea without an *Invite Code* 🛫!
+
+Our team
+members [@mannaandpoem](https://github.com/mannaandpoem) [@XiangJinyu](https://github.com/XiangJinyu) [@MoshiQAQ](https://github.com/MoshiQAQ) [@didiforgithub](https://github.com/didiforgithub) [@stellaHSR](https://github.com/stellaHSR)
+and [@Xinyu Zhang](https://x.com/xinyzng), we are from [@MetaGPT](https://github.com/geekan/MetaGPT) etc. The prototype
+is launched within 3 hours and we are keeping building!
 
 Thanks to the MetaGPT team for providing the basic framework for OpenManus.
 
 Enjoy your own agent with OpenManus!
+
+We're also excited to introduce [OpenManus-RL](https://github.com/OpenManus/OpenManus-RL), an open-source project dedicated to reinforcement learning (RL)- based (such as GRPO) tuning methods for LLM agents, developed collaboratively by researchers from UIUC and OpenManus.
 
 ## Project Demo
 
 <img src="assets/webapp.png" alt="OpenManus Web App" width="800" />
 
 ## Installation
+
+We provide two installation methods. Method 2 (using uv) is recommended for faster installation and better dependency management.
+
+### Method 1: Using conda
 
 1. Create a new conda environment:
 
@@ -39,6 +48,36 @@ cd OpenManus
 
 ```bash
 pip install -r requirements.txt
+```
+
+### Method 2: Using uv (Recommended)
+
+1. Install uv (A fast Python package installer and resolver):
+
+```bash
+curl -LsSf https://astral.sh/uv/install.sh | sh
+```
+
+2. Clone the repository:
+
+```bash
+git clone https://github.com/mannaandpoem/OpenManus.git
+cd OpenManus
+```
+
+3. Create a new virtual environment and activate it:
+
+```bash
+uv venv
+source .venv/bin/activate  # On Unix/macOS
+# Or on Windows:
+# .venv\Scripts\activate
+```
+
+4. Install dependencies:
+
+```bash
+uv pip install -r requirements.txt
 ```
 
 ## Configuration
@@ -71,8 +110,7 @@ api_key = "sk-..."  # Replace with your actual API key
 
 ## Quick Start
 
-### Terminal Mode
-Run OpenManus from the terminal:
+One line for run OpenManus:
 
 ```bash
 python main.py
@@ -96,19 +134,27 @@ python run_flow.py
 ```
 
 ## How to contribute
+
 We welcome any friendly suggestions and helpful contributions! Just create issues or submit pull requests.
 
 Or contact @mannaandpoem via 📧email: mannaandpoem@gmail.com
 
 ## Roadmap
-- [ ] Better Planning
-- [ ] Live Demos
-- [ ] Replay
-- [ ] RL Fine-tuned Models
-- [ ] Comprehensive Benchmarks
-- [ ] Web Interface Enhancements
+
+After comprehensively gathering feedback from community members, we have decided to adopt a 3-4 day iteration cycle to gradually implement the highly anticipated features.
+
+- [ ] Enhance Planning capabilities, optimize task breakdown and execution logic
+- [ ] Introduce standardized evaluation metrics (based on GAIA and TAU-Bench) for continuous performance assessment and optimization
+- [ ] Expand model adaptation and optimize low-cost application scenarios
+- [ ] Implement containerized deployment to simplify installation and usage workflows
+- [ ] Enrich example libraries with more practical cases, including analysis of both successful and failed examples
+- [ ] Frontend/backend development to improve user experience
 
 ## Community Group
+Join our discord group
+
+[![Discord Follow](https://dcbadge.vercel.app/api/server/https://discord.gg/jkT5udP9bw?style=flat)](https://discord.gg/jkT5udP9bw) &ensp;
+
 Join our networking group on Feishu and share your experience with other developers!
 
 <div align="center" style="display: flex; gap: 20px;">
@@ -121,6 +167,7 @@ Join our networking group on Feishu and share your experience with other develop
 
 ## Acknowledgement
 
-Thanks to [anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo) and [broswer-use](https://github.com/browser-use/browser-use) for providing basic support for this project!
+Thanks to [anthropic-computer-use](https://github.com/anthropics/anthropic-quickstarts/tree/main/computer-use-demo)
+and [browser-use](https://github.com/browser-use/browser-use) for providing basic support for this project!
 
 OpenManus is built by **Yunqi AI** based on the framework from MetaGPT community. Huge thanks to this agent community!
