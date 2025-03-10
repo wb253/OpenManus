@@ -5,7 +5,7 @@ from watchdog.observers import Observer
 from watchdog.events import FileSystemEventHandler
 
 class LogFileMonitor:
-    def __init__(self, job_id=None, log_dir='/Users/lihongmin/funs/OpenManus/logs'):
+    def __init__(self, job_id=None, log_dir='logs'):
         # 优先使用环境变量中的任务ID
         self.job_id = job_id or os.environ.get("OPENMANUS_TASK_ID")
         self.log_dir = log_dir

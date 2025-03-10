@@ -118,7 +118,7 @@ class PlanningFlow(BaseFlow):
             if len(job_id) < 10:  # 如果太短，加上时间戳
                 job_id = f"job_{int(time.time())}"
         
-        log_file_path = f"/Users/lihongmin/funs/OpenManus/logs/{job_id}.log"
+        log_file_path = f"logs/{job_id}.log"
         os.environ["OPENMANUS_TASK_ID"] = job_id
         os.environ["OPENMANUS_LOG_FILE"] = log_file_path
         
