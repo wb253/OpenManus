@@ -292,7 +292,7 @@ class PlanningFlow(BaseFlow):
             logger.info(
                 f"Marked step {self.current_step_index} as completed in plan {self.active_plan_id}"
             )
-            ThinkingTracker.add_thinking_step(self.active_plan_id, f"Completed step {self.current_step_index}")
+            # ThinkingTracker.add_thinking_step(self.active_plan_id, f"Completed step {self.current_step_index}")
         except Exception as e:
             logger.warning(f"Failed to update plan status: {e}")
             # Update step status directly in planning tool storage

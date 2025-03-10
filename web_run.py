@@ -6,21 +6,10 @@ from pathlib import Path
 
 # 检查WebSocket依赖
 def check_websocket_dependencies():
-    try:
-        import websockets
-        return True
-    except ImportError:
-        try:
-            import wsproto
-            return True
-        except ImportError:
-            print("\n⚠️ 警告: 缺少WebSocket支持库!")
-            print("请安装WebSocket依赖以启用实时通讯功能:")
-            print("    pip install 'uvicorn[standard]'")
-            print("或者:")
-            print("    pip install websockets\n")
-            choice = input("是否继续启动应用?(y/n): ")
-            return choice.lower() == 'y'
+
+    import websockets
+    return True
+
 
 # 确保目录结构存在
 def ensure_directories():
