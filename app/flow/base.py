@@ -5,6 +5,7 @@ from typing import Dict, List, Optional, Union
 from pydantic import BaseModel
 
 from app.agent.base import BaseAgent
+import asyncio
 
 
 class FlowType(str, Enum):
@@ -89,3 +90,6 @@ class PlanStepStatus(str, Enum):
             cls.BLOCKED.value: "[!]",
             cls.NOT_STARTED.value: "[ ]",
         }
+    async def execute(self, input_text: str, job_id: str = None, cancel_event: asyncio.Event = None) -> str:
+        """Execute the flow with the given input text."""
+        raise NotImplementedError("Subclasses must implement execute method")
