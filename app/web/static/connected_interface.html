@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenManus Web - 网页版</title>
+    <title>OpenManus Web</title>
     <style>
         :root {
             --primary-color: #4a6fa5;
@@ -43,6 +43,22 @@
             text-align: center;
             padding: 20px 0;
             border-bottom: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .language-selector select {
+            padding: 5px 10px;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            background-color: white;
+            font-size: 0.9rem;
+            cursor: pointer;
         }
 
         h1 {
@@ -516,28 +532,34 @@
 <body>
     <div class="container">
         <header>
-            <h1>OpenManus <span class="emoji">🐱</span></h1>
-            <p class="subtitle">AI智能助手 - 网页版</p>
+            <h1 data-i18n="app_title">OpenManus <span class="emoji">🐱</span></h1>
+            <p class="subtitle" data-i18n="app_subtitle">AI智能助手 - 网页版</p>
+            <div class="language-selector">
+                <select id="language-selector" aria-label="Language selector">
+                    <option value="zh-CN">中文</option>
+                    <option value="en-US">English</option>
+                </select>
+            </div>
         </header>
 
         <main>
             <div class="panel-container">
                 <!-- 左侧面板 - 处理进度 -->
                 <div class="panel left-panel">
-                    <h2>处理进度</h2>
+                    <h2 data-i18n="processing_progress">处理进度</h2>
 
                     <div class="thinking-section">
                         <div class="section-header">
-                            <h3>AI思考过程</h3>
-                            <div class="record-count" id="record-count">0 条记录</div>
+                            <h3 data-i18n="ai_thinking_process">AI思考过程</h3>
+                            <div class="record-count" id="record-count" data-i18n="records_count">0 条记录</div>
                         </div>
 
                         <div class="controls">
                             <label class="auto-scroll">
                                 <input type="checkbox" id="auto-scroll" checked>
-                                <span>自动滚动</span>
+                                <span data-i18n="auto_scroll">自动滚动</span>
                             </label>
-                            <button id="clear-thinking" class="btn-clear">清空</button>
+                            <button id="clear-thinking" class="btn-clear" data-i18n="clear">清空</button>
                         </div>
 
                         <div id="thinking-timeline" class="thinking-timeline">
@@ -546,10 +568,10 @@
                     </div>
 
                     <div class="workspace-section">
-                        <h3>工作区文件</h3>
+                        <h3 data-i18n="workspace_files">工作区文件</h3>
                         <div class="refresh-info">
-                            <span id="refresh-countdown">5秒后刷新</span>
-                            <button id="refresh-files" class="btn-refresh">刷新</button>
+                            <span id="refresh-countdown" data-i18n="refresh_countdown">5秒后刷新</span>
+                            <button id="refresh-files" class="btn-refresh" data-i18n="refresh">刷新</button>
                         </div>
 
                         <div id="workspace-files" class="workspace-files">
@@ -560,18 +582,18 @@
 
                 <!-- 右侧面板 - 对话 -->
                 <div class="panel right-panel">
-                    <h2>对话</h2>
+                    <h2 data-i18n="conversation">对话</h2>
 
                     <div id="chat-messages" class="chat-messages">
                         <!-- 聊天消息将由JavaScript动态生成 -->
                     </div>
 
                     <div class="input-area">
-                        <textarea id="user-input" placeholder="输入您的问题或指令..."></textarea>
+                        <textarea id="user-input" placeholder="输入您的问题或指令..." data-i18n="input_placeholder"></textarea>
                         <div class="button-group">
-                            <button id="send-btn" class="btn-send">发送</button>
-                            <button id="stop-btn" class="btn-stop" disabled>停止</button>
-                            <button id="clear-btn" class="btn-clear">清除</button>
+                            <button id="send-btn" class="btn-send" data-i18n="send">发送</button>
+                            <button id="stop-btn" class="btn-stop" disabled data-i18n="stop">停止</button>
+                            <button id="clear-btn" class="btn-clear" data-i18n="clear">清除</button>
                         </div>
                         <div id="status-indicator" class="status-indicator"></div>
                     </div>
@@ -579,8 +601,8 @@
                     <!-- 文件查看器 -->
                     <div id="file-viewer" class="file-viewer">
                         <div class="file-viewer-header">
-                            <h3 id="file-name">文件名</h3>
-                            <button id="close-file-viewer" class="btn-close">×</button>
+                            <h3 id="file-name" data-i18n="file_name">文件名</h3>
+                            <button id="close-file-viewer" class="btn-close" data-i18n="close">×</button>
                         </div>
                         <pre id="file-content" class="file-content"></pre>
                     </div>
@@ -589,8 +611,8 @@
         </main>
 
         <footer>
-            <p>Web界面制作: <a href="https://space.bilibili.com/267577" target="_blank">云栖AI</a></p>
-            <p>Powered by OpenManus - <a href="https://github.com/mannaandpoem/OpenManus" target="_blank">GitHub</a></p>
+            <p><span data-i18n="ui_made_by">Web界面制作:</span> <a href="https://space.bilibili.com/267577" target="_blank">云栖AI</a></p>
+            <p><span data-i18n="powered_by">Powered by OpenManus -</span> <a href="https://github.com/mannaandpoem/OpenManus" target="_blank">GitHub</a></p>
         </footer>
     </div>
 

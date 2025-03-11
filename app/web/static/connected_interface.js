@@ -6,6 +6,7 @@ import { ChatManager } from '/static/connected_chatManager.js';
 import { ThinkingManager } from '/static/connected_thinkingManager.js';
 import { WorkspaceManager } from '/static/connected_workspaceManager.js';
 import { FileViewerManager } from '/static/connected_fileViewerManager.js';
+import { initLanguage, setLanguage, updatePageTexts, t } from '/static/i18n.js';
 
 // 主应用类
 class App {
@@ -27,6 +28,11 @@ class App {
     // 初始化应用
     init() {
         console.log('OpenManus Web应用初始化...');
+
+        // 初始化语言设置
+        const currentLang = initLanguage();
+        document.getElementById('language-selector').value = currentLang;
+        updatePageTexts();
 
         // 初始化各个管理器
         this.chatManager.init();
@@ -61,6 +67,39 @@ class App {
         document.getElementById('refresh-files').addEventListener('click', () => {
             this.loadWorkspaceFiles();
         });
+
+        // 语言选择器
+        document.getElementById('language-selector').addEventListener('change', (event) => {
+            const selectedLang = event.target.value;
+            setLanguage(selectedLang);
+            updatePageTexts();
+            this.updateDynamicTexts();
+        });
+    }
+
+    // 更新动态生成的文本
+    updateDynamicTexts() {
+        // 更新状态指示器
+        const statusIndicator = document.getElementById('status-indicator');
+        if (statusIndicator.textContent.includes('正在处理')) {
+            statusIndicator.textContent = t('processing_request');
+        } else if (statusIndicator.textContent.includes('处理已停止')) {
+            statusIndicator.textContent = t('processing_stopped');
+        }
+
+        // 更新记录计数
+        const recordCount = document.getElementById('record-count');
+        const count = parseInt(recordCount.textContent);
+        if (!isNaN(count)) {
+            recordCount.textContent = t('records_count', { count });
+        }
+
+        // 更新刷新倒计时
+        const refreshCountdown = document.getElementById('refresh-countdown');
+        const seconds = refreshCountdown.textContent.match(/\d+/);
+        if (seconds) {
+            refreshCountdown.textContent = t('refresh_countdown', { seconds: seconds[0] });
+        }
     }
 
     // 处理发送消息
@@ -73,7 +112,7 @@ class App {
         this.isProcessing = true;
         document.getElementById('send-btn').disabled = true;
         document.getElementById('stop-btn').disabled = false;
-        document.getElementById('status-indicator').textContent = '正在处理您的请求...';
+        document.getElementById('status-indicator').textContent = t('processing_request');
 
         try {
             // 发送API请求创建新会话
@@ -86,7 +125,7 @@ class App {
             });
 
             if (!response.ok) {
-                throw new Error(`API错误: ${response.status}`);
+                throw new Error(t('api_error', { status: response.status }));
             }
 
             const data = await response.json();
@@ -102,8 +141,8 @@ class App {
             this.thinkingManager.clearThinking();
 
         } catch (error) {
-            console.error('发送消息错误:', error);
-            this.chatManager.addSystemMessage(`发生错误: ${error.message}`);
+            console.error(t('send_message_error', { message: error.message }), error);
+            this.chatManager.addSystemMessage(t('error_occurred', { message: error.message }));
             this.isProcessing = false;
             document.getElementById('send-btn').disabled = false;
             document.getElementById('stop-btn').disabled = true;
@@ -176,19 +215,19 @@ class App {
             });
 
             if (!response.ok) {
-                throw new Error(`API错误: ${response.status}`);
+                throw new Error(t('api_error', { status: response.status }));
             }
 
             console.log('处理已停止');
-            this.chatManager.addSystemMessage('处理已停止');
-            document.getElementById('status-indicator').textContent = '处理已停止';
+            this.chatManager.addSystemMessage(t('processing_stopped'));
+            document.getElementById('status-indicator').textContent = t('processing_stopped');
             document.getElementById('send-btn').disabled = false;
             document.getElementById('stop-btn').disabled = true;
             this.isProcessing = false;
 
         } catch (error) {
-            console.error('停止处理错误:', error);
-            this.chatManager.addSystemMessage(`停止处理错误: ${error.message}`);
+            console.error(t('stop_processing_error', { message: error.message }), error);
+            this.chatManager.addSystemMessage(t('error_occurred', { message: error.message }));
         }
     }
 
@@ -197,14 +236,14 @@ class App {
         try {
             const response = await fetch('/api/files');
             if (!response.ok) {
-                throw new Error(`API错误: ${response.status}`);
+                throw new Error(t('api_error', { status: response.status }));
             }
 
             const data = await response.json();
             this.workspaceManager.updateWorkspaces(data.workspaces);
 
         } catch (error) {
-            console.error('加载工作区文件错误:', error);
+            console.error(t('load_workspace_error', { message: error.message }), error);
         }
     }
 
@@ -213,15 +252,15 @@ class App {
         try {
             const response = await fetch(`/api/files/${encodeURIComponent(filePath)}`);
             if (!response.ok) {
-                throw new Error(`API错误: ${response.status}`);
+                throw new Error(t('api_error', { status: response.status }));
             }
 
             const data = await response.json();
             this.fileViewerManager.showFile(data.name, data.content);
 
         } catch (error) {
-            console.error('加载文件内容错误:', error);
-            this.chatManager.addSystemMessage(`加载文件内容错误: ${error.message}`);
+            console.error(t('load_file_error', { message: error.message }), error);
+            this.chatManager.addSystemMessage(t('error_occurred', { message: error.message }));
         }
     }
 }
