@@ -24,13 +24,13 @@ HEADERS = {
     "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
     "Content-Type": "application/x-www-form-urlencoded",
     "User-Agent": USER_AGENTS[0],
-    "Referer": "https://www.bing.com/",
+    "Referer": "https://cn.bing.com/",
     "Accept-Encoding": "gzip, deflate",
     "Accept-Language": "zh-CN,zh;q=0.9"
 }
 
-BING_HOST_URL = "https://www.bing.com"
-BING_SEARCH_URL = "https://www.bing.com/search?q="
+BING_HOST_URL = "https://cn.bing.com"
+BING_SEARCH_URL = "https://cn.bing.com/search?q="
 
 
 class BingSearch(BaseTool):

@@ -130,14 +130,14 @@ class PlanningFlow(BaseFlow):
         # 原有代码继续执行
         # Create a system message for plan creation
         system_message = Message.system_message(
-            "You are a planning assistant. Create a concise, actionable plan with clear steps. "
-            "Focus on key milestones rather than detailed sub-steps. "
-            "Optimize for clarity and efficiency."
+            "你是一个计划助理。创建一个简洁、可操作的计划，步骤清晰。"
+            "关注关键里程碑而不是详细的子步骤。"
+            "优化清晰度和效率。"
         )
 
         # Create a user message with the request
         user_message = Message.user_message(
-            f"Create a reasonable plan with clear steps to accomplish the task: {request}"
+            f"为任务：{request} 制定合理的计划，明确完成任务的步骤。"
         )
 
         # Call LLM with PlanningTool
@@ -167,7 +167,7 @@ class PlanningFlow(BaseFlow):
                     # Execute the tool via ToolCollection instead of directly
                     result = await self.planning_tool.execute(**args)
 
-                    logger.info(f"Plan creation result: {str(result)}")
+                    logger.info(f"计划创建结果: {str(result)}")
                     return
 
         # If execution reached here, create a default plan
@@ -178,8 +178,8 @@ class PlanningFlow(BaseFlow):
             **{
                 "command": "create",
                 "plan_id": self.active_plan_id,
-                "title": f"Plan for: {request[:50]}{'...' if len(request) > 50 else ''}",
-                "steps": ["Analyze request", "Execute task", "Verify results"],
+                "title": f"计划为: {request[:50]}{'...' if len(request) > 50 else ''}",
+                "steps": ["分析请求", "执行任务", "验证结果"],
             }
         )
 
@@ -255,13 +255,12 @@ class PlanningFlow(BaseFlow):
 
         # Create a prompt for the agent to execute the current step
         step_prompt = f"""
-        CURRENT PLAN STATUS:
+        当前计划状态:
         {plan_status}
 
-        YOUR CURRENT TASK:
-        You are now working on step {self.current_step_index}: "{step_text}"
-
-        Please execute this step using the appropriate tools. When you're done, provide a summary of what you accomplished.
+        你当前的任务:
+        你正在执行第{self.current_step_index}步："{step_text}"
+        请使用适当的工具执行此步骤。完成后，提供您所完成工作的摘要.
         """
 
         # Use agent.run() to execute the step
@@ -348,11 +347,11 @@ class PlanningFlow(BaseFlow):
             total = len(steps)
             progress = (completed / total) * 100 if total > 0 else 0
 
-            plan_text = f"Plan: {title} (ID: {self.active_plan_id})\n"
+            plan_text = f"计划: {title} (ID: {self.active_plan_id})\n"
             plan_text += "=" * len(plan_text) + "\n\n"
 
             plan_text += (
-                f"Progress: {completed}/{total} steps completed ({progress:.1f}%)\n"
+                f"进度: 完成{completed}/{total}步 ({progress:.1f}%)\n"
             )
             plan_text += f"Status: {status_counts[PlanStepStatus.COMPLETED.value]} completed, {status_counts[PlanStepStatus.IN_PROGRESS.value]} in progress, "
             plan_text += f"{status_counts[PlanStepStatus.BLOCKED.value]} blocked, {status_counts[PlanStepStatus.NOT_STARTED.value]} not started\n\n"
@@ -384,11 +383,11 @@ class PlanningFlow(BaseFlow):
         # Create a summary using the flow's LLM directly
         try:
             system_message = Message.system_message(
-                "You are a planning assistant. Your task is to summarize the completed plan."
+                "你是计划助理，你的任务是总结已完成的计划。"
             )
 
             user_message = Message.user_message(
-                f"The plan has been completed. Here is the final plan status:\n\n{plan_text}\n\nPlease provide a summary of what was accomplished and any final thoughts."
+                f"计划已经完成. 这是最终计划状态:\n\n{plan_text}\n\n请提供已完成工作的摘要和任何最终想法。"
             )
 
             response = await self.llm.ask(
@@ -403,11 +402,11 @@ class PlanningFlow(BaseFlow):
             try:
                 agent = self.primary_agent
                 summary_prompt = f"""
-                The plan has been completed. Here is the final plan status:
+                这个计划已经完成。这是最终的计划状态:
 
                 {plan_text}
 
-                Please provide a summary of what was accomplished and any final thoughts.
+                请提供已完成工作的摘要和任何最终想法。
                 """
                 summary = await agent.run(summary_prompt)
                 return f"Plan completed:\n\n{summary}"
