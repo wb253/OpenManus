@@ -93,7 +93,7 @@ class SessionRequest(BaseModel):
 async def get_home(request: Request):
     """主页入口 - 使用connected界面"""
     return HTMLResponse(
-        content=open(current_dir / "static" / "connected_interface.html").read()
+        content=open(current_dir / "static" / "connected_interface.html", encoding='utf-8').read()
     )
 
 
@@ -107,7 +107,7 @@ async def get_original_interface(request: Request):
 async def get_connected_interface(request: Request):
     """连接后端的新界面入口 (与主页相同)"""
     return HTMLResponse(
-        content=open(current_dir / "static" / "connected_interface.html").read()
+        content=open(current_dir / "static" / "connected_interface.html", encoding='utf-8').read()
     )
 
 
