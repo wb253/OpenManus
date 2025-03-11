@@ -7,7 +7,6 @@ from openai import (
     AuthenticationError,
     OpenAIError,
     RateLimitError,
-    AsyncAzureOpenAI
 )
 from tenacity import retry, stop_after_attempt, wait_random_exponential
 

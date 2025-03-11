@@ -447,7 +447,7 @@ footer a:hover {
     .panel-container {
         flex-direction: column;
     }
-    
+
     .left-panel, .right-panel {
         max-width: 100%;
     }

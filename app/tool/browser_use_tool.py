@@ -261,9 +261,13 @@ class BrowserUseTool(BaseTool):
 
     async def cleanup(self):
         """清理浏览器资源"""
-        if hasattr(self, 'browser') and self.browser is not None:
+        if hasattr(self, "browser") and self.browser is not None:
             try:
-                if hasattr(self, 'context') and self.context and not self.context.is_closed():
+                if (
+                    hasattr(self, "context")
+                    and self.context
+                    and not self.context.is_closed()
+                ):
                     await self.context.close()
                 if self.browser and not self.browser.is_closed():
                     await self.browser.close()
@@ -275,7 +279,7 @@ class BrowserUseTool(BaseTool):
 
     def __del__(self):
         """在对象被销毁时尝试清理资源"""
-        if hasattr(self, 'browser') and self.browser is not None:
+        if hasattr(self, "browser") and self.browser is not None:
             try:
                 # 检查是否有事件循环正在运行
                 try:

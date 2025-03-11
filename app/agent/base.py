@@ -1,7 +1,7 @@
+import asyncio
 from abc import ABC, abstractmethod
 from contextlib import asynccontextmanager
 from typing import List, Literal, Optional
-import asyncio
 
 from pydantic import BaseModel, Field, model_validator
 
@@ -111,7 +111,9 @@ class BaseAgent(BaseModel, ABC):
         msg = msg_factory(content, **kwargs) if role == "tool" else msg_factory(content)
         self.memory.add_message(msg)
 
-    async def run(self, request: Optional[str] = None, cancel_event: asyncio.Event = None) -> str:
+    async def run(
+        self, request: Optional[str] = None, cancel_event: asyncio.Event = None
+    ) -> str:
         """Execute the agent's main loop asynchronously.
 
         Args:

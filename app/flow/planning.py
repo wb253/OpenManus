@@ -1,8 +1,8 @@
+import asyncio  # 添加导入
 import json
 import os  # 添加导入os模块
 import time
 from typing import Dict, List, Optional, Union
-import asyncio  # 添加导入
 
 from pydantic import Field
 
@@ -63,7 +63,9 @@ class PlanningFlow(BaseFlow):
         # Fallback to primary agent
         return self.primary_agent
 
-    async def execute(self, input_text: str, job_id: str = None, cancel_event: asyncio.Event = None) -> str:
+    async def execute(
+        self, input_text: str, job_id: str = None, cancel_event: asyncio.Event = None
+    ) -> str:
         """Execute the planning flow with agents."""
         try:
             if not self.primary_agent:
@@ -117,14 +119,14 @@ class PlanningFlow(BaseFlow):
             job_id = f"job_{request[:8].replace(' ', '_')}"
             if len(job_id) < 10:  # 如果太短，加上时间戳
                 job_id = f"job_{int(time.time())}"
-        
+
         log_file_path = f"logs/{job_id}.log"
         os.environ["OPENMANUS_TASK_ID"] = job_id
         os.environ["OPENMANUS_LOG_FILE"] = log_file_path
-        
+
         # 设置日志文件名为job_id
         logger.add(log_file_path, rotation="100 MB")
-        
+
         logger.info(f"Creating initial plan with ID: {self.active_plan_id}")
 
         # 原有代码继续执行

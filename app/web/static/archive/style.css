@@ -6,7 +6,7 @@
     --chat-user-bg: #e1f5fe;
     --chat-ai-bg: #f1f1f1;
     --border-color: #dddddd;
-    
+
     /* 日志级别颜色 */
     --log-info: #2196f3;
     --log-warning: #ff9800;
@@ -890,15 +890,15 @@ pre {
     .container {
         padding: 10px;
     }
-    
+
     h1 {
         font-size: 2em;
     }
-    
+
     .workspace {
         flex-direction: column;
     }
-    
+
     .log-container, .chat-container {
         max-width: 100%;
     }

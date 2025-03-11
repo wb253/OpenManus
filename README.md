@@ -132,7 +132,7 @@ You can also use OpenManus through a user-friendly web interface:
 ```bash
 uvicorn app.web.app:app --reload
 ```
-or 
+or
 ```bash
 python web_run.py
 ```

@@ -499,14 +499,14 @@
             .panel-container {
                 flex-direction: column;
             }
-            
+
             .left-panel, .right-panel {
                 max-width: 100%;
             }
         }
 
         /* 代码高亮 */
-        .language-html, .language-css, .language-javascript, 
+        .language-html, .language-css, .language-javascript,
         .language-python, .language-json, .language-markdown {
             background-color: #f8f8f8;
             border-radius: 4px;
@@ -519,19 +519,19 @@
             <h1>OpenManus <span class="emoji">🐱</span></h1>
             <p class="subtitle">AI智能助手 - 网页版</p>
         </header>
-        
+
         <main>
             <div class="panel-container">
                 <!-- 左侧面板 - 处理进度 -->
                 <div class="panel left-panel">
                     <h2>处理进度</h2>
-                    
+
                     <div class="thinking-section">
                         <div class="section-header">
                             <h3>AI思考过程</h3>
                             <div class="record-count" id="record-count">0 条记录</div>
                         </div>
-                        
+
                         <div class="controls">
                             <label class="auto-scroll">
                                 <input type="checkbox" id="auto-scroll" checked>
@@ -539,33 +539,33 @@
                             </label>
                             <button id="clear-thinking" class="btn-clear">清空</button>
                         </div>
-                        
+
                         <div id="thinking-timeline" class="thinking-timeline">
                             <!-- 思考步骤时间线将由JavaScript动态生成 -->
                         </div>
                     </div>
-                    
+
                     <div class="workspace-section">
                         <h3>工作区文件</h3>
                         <div class="refresh-info">
                             <span id="refresh-countdown">5秒后刷新</span>
                             <button id="refresh-files" class="btn-refresh">刷新</button>
                         </div>
-                        
+
                         <div id="workspace-files" class="workspace-files">
                             <!-- 工作区文件列表将由JavaScript动态生成 -->
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右侧面板 - 对话 -->
                 <div class="panel right-panel">
                     <h2>对话</h2>
-                    
+
                     <div id="chat-messages" class="chat-messages">
                         <!-- 聊天消息将由JavaScript动态生成 -->
                     </div>
-                    
+
                     <div class="input-area">
                         <textarea id="user-input" placeholder="输入您的问题或指令..."></textarea>
                         <div class="button-group">
@@ -575,7 +575,7 @@
                         </div>
                         <div id="status-indicator" class="status-indicator"></div>
                     </div>
-                    
+
                     <!-- 文件查看器 -->
                     <div id="file-viewer" class="file-viewer">
                         <div class="file-viewer-header">
@@ -587,7 +587,7 @@
                 </div>
             </div>
         </main>
-        
+
         <footer>
             <p>Web界面制作: <a href="https://space.bilibili.com/267577" target="_blank">云栖AI</a></p>
             <p>Powered by OpenManus - <a href="https://github.com/mannaandpoem/OpenManus" target="_blank">GitHub</a></p>

@@ -12,18 +12,18 @@
             <h1>OpenManus 🙋</h1>
             <p class="subtitle">AI智能助手 - 网页版</p>
         </header>
-        
+
         <main>
             <div class="workspace">
                 <div class="log-container">
                     <h2>处理进度</h2>
                     <!-- 进度条将在JS中动态插入 -->
-                    
+
                     <div class="thinking-header">
                         <h3>AI思考过程</h3>
                     </div>
                     <div id="thinking-steps" class="thinking-steps"></div>
-                    
+
                     <!-- 系统日志显示区域 -->
                     <div id="system-logs" class="system-logs">
                         <div class="logs-header">
@@ -35,7 +35,7 @@
                         </div>
                         <div id="logs-content" class="logs-content"></div>
                     </div>
-                    
+
                     <!-- 添加生成文件容器 -->
                     <div id="generated-files" class="generated-files">
                         <div class="files-header">
@@ -45,11 +45,11 @@
                         <div id="files-list" class="files-list"></div>
                     </div>
                 </div>
-                
+
                 <div class="chat-container">
                     <h2>对话</h2>
                     <div id="chat-messages" class="chat-messages"></div>
-                    
+
                     <div class="input-area">
                         <textarea id="user-input" placeholder="输入您的问题或指令..." rows="3"></textarea>
                         <div class="button-area">
@@ -58,7 +58,7 @@
                             <button id="clear-btn" class="secondary-btn">清除</button>
                         </div>
                     </div>
-                    
+
                     <!-- 添加文件内容查看器 -->
                     <div id="file-viewer" class="file-viewer">
                         <div class="file-viewer-header">
@@ -69,7 +69,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div id="status-indicator" class="status-indicator"></div>
         </main>
 
@@ -86,7 +86,7 @@
                 <div id="logContent" class="log-content"></div>
             </div>
         </div>
-        
+
         <!-- 执行状态显示 -->
         <div class="section" id="execution-status-section">
             <h2>执行状态</h2>
@@ -95,14 +95,14 @@
                     <h3 id="log-title">未选择日志文件</h3>
                     <div class="status-badge" id="status-badge">未知</div>
                 </div>
-                
+
                 <div class="progress-container">
                     <div class="progress-bar-wrapper">
                         <div class="progress-bar" id="execution-progress-bar"></div>
                     </div>
                     <div class="progress-text" id="progress-text">0%</div>
                 </div>
-                
+
                 <div class="execution-details">
                     <div class="detail-item">
                         <span class="detail-label">计划ID:</span>
@@ -121,17 +121,17 @@
                         <span class="detail-value" id="total-steps">-</span>
                     </div>
                 </div>
-                
+
                 <div class="steps-container">
                     <h4>执行步骤</h4>
                     <div class="steps-list" id="steps-list"></div>
                 </div>
-                
+
                 <div class="tools-container">
                     <h4>工具使用</h4>
                     <div class="tools-list" id="tools-list"></div>
                 </div>
-                
+
                 <div class="errors-warnings-container">
                     <div class="errors-container">
                         <h4>错误 (<span id="errors-count">0</span>)</h4>
@@ -149,7 +149,7 @@
             <p>Powered by OpenManus - <a href="https://github.com/mannaandpoem/OpenManus" target="_blank">GitHub</a></p>
         </footer>
     </div>
-    
+
     <!-- <div class="system-logs-panel" id="systemLogsPanel">
         <h3>系统日志</h3>
         <div class="system-logs-container" id="systemLogsContainer">
@@ -164,16 +164,16 @@
             try {
                 const response = await fetch('/api/logs');
                 const logs = await response.json();
-                
+
                 const logContent = document.getElementById('logContent');
                 logContent.innerHTML = '';
-                
+
                 logs.logs.forEach(log => {
                     const logEntry = document.createElement('div');
                     logEntry.className = 'log-entry';
                     logEntry.innerHTML = `
                         <span>${log.name}</span>
-                        <span>${new Date(log.modified * 1000).toLocaleString()}</span> 
+                        <span>${new Date(log.modified * 1000).toLocaleString()}</span>
                         <span>${(log.size/1024).toFixed(2)} KB</span>
                         <span class="log-actions">
                             <button class="view-log-btn" data-log="${log.name}">查看内容</button>
@@ -182,7 +182,7 @@
                     `;
                     logContent.appendChild(logEntry);
                 });
-                
+
                 // 添加查看日志内容按钮事件
                 document.querySelectorAll('.view-log-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
@@ -190,7 +190,7 @@
                         loadLogContent(logName);
                     });
                 });
-                
+
                 // 添加查看执行状态按钮事件
                 document.querySelectorAll('.view-status-btn').forEach(btn => {
                     btn.addEventListener('click', (e) => {
@@ -226,12 +226,12 @@
                         </div>
                     `;
                     document.body.appendChild(modal);
-                    
+
                     // 添加关闭按钮事件
                     modal.querySelector('.close-modal').addEventListener('click', () => {
                         document.body.removeChild(modal);
                     });
-                    
+
                     // 点击模态框外部关闭
                     modal.addEventListener('click', (e) => {
                         if (e.target === modal) {
@@ -243,76 +243,76 @@
                 console.error('Error loading log content:', error);
             }
         }
-        
+
         async function loadLogExecutionStatus(logName) {
             try {
                 // 显示执行状态区域
                 document.getElementById('execution-status-section').style.display = 'block';
-                
+
                 // 获取解析后的日志信息
                 const response = await fetch(`/api/logs_parsed/${logName}`);
                 const logInfo = await response.json();
-                
+
                 // 更新标题和状态
                 document.getElementById('log-title').textContent = `日志: ${logName}`;
-                
+
                 // 更新状态徽章
                 const statusBadge = document.getElementById('status-badge');
                 statusBadge.textContent = getStatusText(logInfo.status);
                 statusBadge.className = `status-badge status-${logInfo.status}`;
-                
+
                 // 更新进度条
                 const progressBar = document.getElementById('execution-progress-bar');
                 const progressText = document.getElementById('progress-text');
                 const percentage = logInfo.progress_percentage || 0;
                 progressBar.style.width = `${percentage}%`;
                 progressText.textContent = `${percentage}%`;
-                
+
                 // 更新详细信息
                 document.getElementById('plan-id').textContent = logInfo.plan_id || '-';
                 document.getElementById('current-step').textContent = logInfo.current_step || '-';
                 document.getElementById('completed-steps').textContent = logInfo.completed_steps || '0';
                 document.getElementById('total-steps').textContent = logInfo.total_steps || '0';
-                
+
                 // 更新步骤列表
                 const stepsList = document.getElementById('steps-list');
                 stepsList.innerHTML = '';
-                
+
                 if (logInfo.steps && logInfo.steps.length > 0) {
                     logInfo.steps.forEach((step, index) => {
-                        const status = logInfo.step_statuses && logInfo.step_statuses[index] 
-                            ? logInfo.step_statuses[index] 
+                        const status = logInfo.step_statuses && logInfo.step_statuses[index]
+                            ? logInfo.step_statuses[index]
                             : 'not_started';
-                        
+
                         const stepItem = document.createElement('div');
                         stepItem.className = `step-item step-${status}`;
-                        
+
                         let statusIcon = '⬜';
                         if (status === 'completed') statusIcon = '✅';
                         else if (status === 'in_progress') statusIcon = '🔄';
                         else if (status === 'blocked') statusIcon = '⚠️';
-                        
+
                         stepItem.innerHTML = `
                             <span class="step-status">${statusIcon}</span>
                             <span class="step-number">${index}.</span>
                             <span class="step-text">${step}</span>
                         `;
-                        
+
                         stepsList.appendChild(stepItem);
                     });
                 } else {
                     stepsList.innerHTML = '<div class="no-steps">无步骤信息</div>';
                 }
-                
+
                 // 更新工具使用列表
                 const toolsList = document.getElementById('tools-list');
                 toolsList.innerHTML = '';
-                
+
                 if (logInfo.tool_executions && logInfo.tool_executions.length > 0) {
                     logInfo.tool_executions.forEach(tool => {
                         const toolItem = document.createElement('div');
                         toolItem.className = 'tool-item';
-                        
+
                         if (tool.tool) {
                             toolItem.innerHTML = `
                                 <span class="tool-icon">🔧</span>
@@ -324,18 +324,18 @@
                                 <span class="tool-action">${tool.action}</span>
                             `;
                         }
-                        
+
                         toolsList.appendChild(toolItem);
                     });
                 } else {
                     toolsList.innerHTML = '<div class="no-tools">无工具使用记录</div>';
                 }
-                
+
                 // 更新错误列表
                 const errorsList = document.getElementById('errors-list');
                 errorsList.innerHTML = '';
                 document.getElementById('errors-count').textContent = logInfo.errors ? logInfo.errors.length : '0';
-                
+
                 if (logInfo.errors && logInfo.errors.length > 0) {
                     logInfo.errors.forEach(error => {
                         const errorItem = document.createElement('div');
@@ -349,12 +349,12 @@
                 } else {
                     errorsList.innerHTML = '<div class="no-errors">无错误</div>';
                 }
-                
+
                 // 更新警告列表
                 const warningsList = document.getElementById('warnings-list');
                 warningsList.innerHTML = '';
                 document.getElementById('warnings-count').textContent = logInfo.warnings ? logInfo.warnings.length : '0';
-                
+
                 if (logInfo.warnings && logInfo.warnings.length > 0) {
                     logInfo.warnings.forEach(warning => {
                         const warningItem = document.createElement('div');
@@ -368,15 +368,15 @@
                 } else {
                     warningsList.innerHTML = '<div class="no-warnings">无警告</div>';
                 }
-                
+
                 // 滚动到执行状态区域
                 document.getElementById('execution-status-section').scrollIntoView({ behavior: 'smooth' });
-                
+
             } catch (error) {
                 console.error('Error loading execution status:', error);
             }
         }
-        
+
         // 获取状态文本
         function getStatusText(status) {
             switch(status) {
@@ -390,7 +390,7 @@
 
         // 页面加载完成后加载日志
         loadSystemLogs();
-        
+
         // 默认隐藏执行状态区域
         document.addEventListener('DOMContentLoaded', function() {
             const statusSection = document.getElementById('execution-status-section');
@@ -402,14 +402,14 @@
         // 在WebSocket连接部分添加处理系统日志的逻辑
         const connectWebSocket = (sessionId) => {
             // ...existing code...
-            
+
             // 添加一个变量跟踪最后一条系统日志消息元素
             let lastSystemLogMessage = null;
             let lastSystemLogTimestamp = 0;
-            
+
             socket.onmessage = function(event) {
                 const data = JSON.parse(event.data);
-                
+
                 // 处理系统日志更新 - 添加到系统日志面板
                 if (data.system_logs && data.system_logs.length > 0) {
                     const systemLogsContainer = document.getElementById('systemLogsContainer');
@@ -418,7 +418,7 @@
                         if (systemLogsContainer.querySelector('p').textContent === '等待日志加载...') {
                             systemLogsContainer.innerHTML = '';
                         }
-                        
+
                         // 添加新日志
                         data.system_logs.forEach(log => {
                             const logLine = document.createElement('p');
@@ -426,70 +426,70 @@
                             logLine.textContent = log;
                             systemLogsContainer.appendChild(logLine);
                         });
-                        
+
                         // 滚动到底部
                         systemLogsContainer.scrollTop = systemLogsContainer.scrollHeight;
                     }
-                    
+
                     // 将系统日志添加到对话窗口中 - 修复代码
                     const chatMessages = document.getElementById('chat-messages');
                     if (chatMessages) {
                         const now = Date.now();
                         // 如果距离上一条系统日志消息不超过5秒，则合并显示
-                        if (lastSystemLogMessage && 
-                            lastSystemLogMessage.parentNode === chatMessages && 
+                        if (lastSystemLogMessage &&
+                            lastSystemLogMessage.parentNode === chatMessages &&
                             now - lastSystemLogTimestamp < 5000) {
-                            
+
                             // 获取已有的日志内容元素
                             const logContent = lastSystemLogMessage.querySelector('.system-log-content');
                             if (logContent) {
                                 // 追加新的日志内容
                                 logContent.textContent += '\n' + data.system_logs.join('\n');
-                                
+
                                 // 更新时间戳
                                 lastSystemLogTimestamp = now;
-                                
+
                                 // 滚动到底部
                                 chatMessages.scrollTop = chatMessages.scrollHeight;
                                 return;
                             }
                         }
-                        
+
                         // 创建一个新的OpenManus回复消息
                         const messageDiv = document.createElement('div');
                         messageDiv.className = 'message system-message';
-                        
+
                         // 创建消息头部
                         const messageHeader = document.createElement('div');
                         messageHeader.className = 'message-header';
                         messageHeader.innerHTML = '<span class="avatar system">🤖</span><span class="sender">OpenManus</span>';
-                        
+
                         // 创建消息内容
                         const messageContent = document.createElement('div');
                         messageContent.className = 'message-content log-message';
-                        
+
                         // 添加日志内容
                         const logContent = document.createElement('pre');
                         logContent.className = 'system-log-content';
                         logContent.textContent = data.system_logs.join('\n');
-                        
+
                         // 组装消息
                         messageContent.appendChild(logContent);
                         messageDiv.appendChild(messageHeader);
                         messageDiv.appendChild(messageContent);
-                        
+
                         // 添加到对话窗口
                         chatMessages.appendChild(messageDiv);
-                        
+
                         // 更新最后的系统日志消息引用和时间戳
                         lastSystemLogMessage = messageDiv;
                         lastSystemLogTimestamp = now;
-                        
+
                         // 滚动到底部
                         chatMessages.scrollTop = chatMessages.scrollHeight;
                     }
                 }
-                
+
                 // ...existing code...
             };
             // ...existing code...
@@ -504,7 +504,7 @@
             padding: 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
-        
+
         .system-logs-container {
             height: 300px;
             overflow-y: auto;
@@ -514,7 +514,7 @@
             padding: 10px;
             border-radius: 4px;
         }
-        
+
         .log-line {
             margin: 0;
             padding: 2px 0;
@@ -527,7 +527,7 @@
             background-color: #f1f8ff;
             border-left: 4px solid #0366d6;
         }
-        
+
         .system-log-content {
             margin: 0;
             padding: 8px;

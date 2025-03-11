@@ -467,7 +467,7 @@
             .panel-container {
                 flex-direction: column;
             }
-            
+
             .left-panel, .right-panel {
                 max-width: 100%;
             }
@@ -480,19 +480,19 @@
             <h1>OpenManus <span class="emoji">🐱</span></h1>
             <p class="subtitle">AI智能助手 - 网页版</p>
         </header>
-        
+
         <main>
             <div class="panel-container">
                 <!-- 左侧面板 - 处理进度 -->
                 <div class="panel left-panel">
                     <h2>处理进度</h2>
-                    
+
                     <div class="thinking-section">
                         <div class="section-header">
                             <h3>AI思考过程</h3>
                             <div class="record-count">7 条记录</div>
                         </div>
-                        
+
                         <div class="controls">
                             <label class="auto-scroll">
                                 <input type="checkbox" id="auto-scroll" checked>
@@ -500,7 +500,7 @@
                             </label>
                             <button id="clear-thinking" class="btn-clear">清空</button>
                         </div>
-                        
+
                         <div id="thinking-timeline" class="thinking-timeline">
                             <!-- 思考步骤时间线 -->
                             <div class="timeline-item">
@@ -509,7 +509,7 @@
                                     <div class="timeline-header">执行步骤 30/30</div>
                                 </div>
                             </div>
-                            
+
                             <div class="timeline-item">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
@@ -518,7 +518,7 @@
                                     <div class="timeline-details">分析用户需求，确定需要创建一个贪吃蛇游戏。需要考虑游戏规则、逻辑实现、技术栈选择和界面设计等方面。</div>
                                 </div>
                             </div>
-                            
+
                             <div class="timeline-item">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
@@ -527,7 +527,7 @@
                                     <div class="timeline-details">选择使用 python_execute 工具来生成游戏相关文件。</div>
                                 </div>
                             </div>
-                            
+
                             <div class="timeline-item">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
@@ -536,7 +536,7 @@
                                     <div class="timeline-details">执行 Python 代码生成游戏规则、逻辑、技术栈和界面设计文档。</div>
                                 </div>
                             </div>
-                            
+
                             <div class="timeline-item">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
@@ -545,19 +545,19 @@
                                     <div class="timeline-details">分析生成的文件，确认所有必要的游戏组件都已经定义。考虑如何将这些组件整合成一个完整的游戏。</div>
                                 </div>
                             </div>
-                            
+
                             <div class="timeline-item">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
                                     <div class="timeline-header">在工作区 job_7a53bf19 中生成了 4 个文件:</div>
                                     <div class="file-list">
-                                        snake_game_rules.txt, snake_game_logic.txt, 
-                                        snake_game_technology_stack.txt, 
+                                        snake_game_rules.txt, snake_game_logic.txt,
+                                        snake_game_technology_stack.txt,
                                         snake_game_interface_design.txt
                                     </div>
                                 </div>
                             </div>
-                            
+
                             <div class="timeline-item completed">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
@@ -566,14 +566,14 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="workspace-section">
                         <h3>工作区文件</h3>
                         <div class="refresh-info">
                             <span id="refresh-countdown">5秒后刷新</span>
                             <button id="refresh-files" class="btn-refresh">刷新</button>
                         </div>
-                        
+
                         <div id="workspace-files" class="workspace-files">
                             <div class="workspace-item">
                                 <div class="workspace-icon">📁</div>
@@ -582,7 +582,7 @@
                                     <div class="workspace-date">3/10/2025 12:25:23 AM</div>
                                 </div>
                             </div>
-                            
+
                             <div class="file-item">
                                 <div class="file-icon">📄</div>
                                 <div class="file-details">
@@ -590,7 +590,7 @@
                                     <div class="file-meta">565 B · 3/10/2025, 12:25:23 AM</div>
                                 </div>
                             </div>
-                            
+
                             <div class="file-item">
                                 <div class="file-icon">📄</div>
                                 <div class="file-details">
@@ -598,7 +598,7 @@
                                     <div class="file-meta">565 B · 3/10/2025, 12:25:23 AM</div>
                                 </div>
                             </div>
-                            
+
                             <div class="file-item">
                                 <div class="file-icon">📄</div>
                                 <div class="file-details">
@@ -606,7 +606,7 @@
                                     <div class="file-meta">410 B · 3/10/2025, 12:25:04 AM</div>
                                 </div>
                             </div>
-                            
+
                             <div class="file-item">
                                 <div class="file-icon">📄</div>
                                 <div class="file-details">
@@ -617,11 +617,11 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- 右侧面板 - 对话 -->
                 <div class="panel right-panel">
                     <h2>对话</h2>
-                    
+
                     <div id="chat-messages" class="chat-messages">
                         <!-- 示例消息 -->
                         <div class="message ai-message">
@@ -637,7 +637,7 @@
                             </div>
                         </div>
                     </div>
-                    
+
                     <div class="input-area">
                         <textarea id="user-input" placeholder="输入您的问题或指令..."></textarea>
                         <div class="button-group">
@@ -646,7 +646,7 @@
                             <button id="clear-btn" class="btn-clear">清除</button>
                         </div>
                     </div>
-                    
+
                     <!-- 文件查看器 -->
                     <div id="file-viewer" class="file-viewer">
                         <div class="file-viewer-header">
@@ -658,7 +658,7 @@
                 </div>
             </div>
         </main>
-        
+
         <footer>
             <p>Powered by OpenManus - <a href="https://github.com/mannaandpoem/OpenManus" target="_blank">GitHub</a></p>
         </footer>
@@ -667,7 +667,7 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log('OpenManus Web界面初始化完成');
-            
+
             // 获取DOM元素
             const userInput = document.getElementById('user-input');
             const sendButton = document.getElementById('send-btn');
@@ -684,7 +684,7 @@
             const refreshFilesButton = document.getElementById('refresh-files');
             const refreshCountdown = document.getElementById('refresh-countdown');
             const detailsButtons = document.querySelectorAll('.btn-details');
-            
+
             // 绑定发送按钮点击事件
             sendButton.addEventListener('click', function() {
                 const message = userInput.value.trim();
@@ -698,13 +698,13 @@
                         </div>
                     `;
                     chatMessages.appendChild(userMessageDiv);
-                    
+
                     // 清空输入框
                     userInput.value = '';
-                    
+
                     // 滚动到底部
                     chatMessages.scrollTop = chatMessages.scrollHeight;
-                    
+
                     // 模拟AI响应
                     setTimeout(function() {
                         const aiMessageDiv = document.createElement('div');
@@ -720,17 +720,17 @@
                     }, 1000);
                 }
             });
-            
+
             // 绑定清除按钮点击事件
             clearButton.addEventListener('click', function() {
                 chatMessages.innerHTML = '';
             });
-            
+
             // 绑定停止按钮点击事件
             stopButton.addEventListener('click', function() {
                 console.log('停止处理');
             });
-            
+
             // 绑定文件项点击事件
             fileItems.forEach(function(item) {
                 item.addEventListener('click', function() {
@@ -738,31 +738,31 @@
                     fileName.textContent = name;
                     fileContent.textContent = '正在加载文件内容...';
                     fileViewer.style.display = 'block';
-                    
+
                     // 模拟加载文件内容
                     setTimeout(function() {
                         fileContent.textContent = `这是 ${name} 的内容示例。\n\n在实际应用中，这里将显示文件的真实内容。`;
                     }, 500);
                 });
             });
-            
+
             // 绑定关闭文件查看器按钮点击事件
             closeFileViewerButton.addEventListener('click', function() {
                 fileViewer.style.display = 'none';
             });
-            
+
             // 绑定清除思考记录按钮点击事件
             clearThinkingButton.addEventListener('click', function() {
                 thinkingTimeline.innerHTML = '';
                 document.querySelector('.record-count').textContent = '0 条记录';
             });
-            
+
             // 绑定刷新文件按钮点击事件
             refreshFilesButton.addEventListener('click', function() {
                 console.log('刷新文件列表');
                 refreshCountdown.textContent = '5秒后刷新';
             });
-            
+
             // 绑定详情按钮点击事件
             detailsButtons.forEach(function(button) {
                 button.addEventListener('click', function() {
@@ -778,7 +778,7 @@
                     }
                 });
             });
-            
+
             // 模拟倒计时
             let countdownValue = 5;
             setInterval(function() {

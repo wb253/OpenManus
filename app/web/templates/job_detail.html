@@ -68,7 +68,7 @@
             <h1>作业: <span id="job-id"></span></h1>
             <div id="job-status">状态: <span>运行中</span></div>
         </div>
-        
+
         <div class="job-content">
             <div class="panel">
                 <h2>生成的文件</h2>
@@ -76,7 +76,7 @@
                     <li>正在加载文件列表...</li>
                 </ul>
             </div>
-            
+
             <div class="panel">
                 <h2>系统日志</h2>
                 <div class="log-container" id="system-logs">
@@ -85,14 +85,14 @@
             </div>
         </div>
     </div>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // 从URL获取job_id
             const urlParams = new URLSearchParams(window.location.search);
             const jobId = urlParams.get('job_id');
             document.getElementById('job-id').textContent = jobId;
-            
+
             // 定期获取生成的文件和系统日志
             function updateJobDetails() {
                 fetch(`/api/job/${jobId}/files`)
@@ -111,7 +111,7 @@
                         }
                     })
                     .catch(error => console.error('获取文件列表失败:', error));
-                
+
                 fetch(`/api/job/${jobId}/logs`)
                     .then(response => response.json())
                     .then(data => {
@@ -132,10 +132,10 @@
                     })
                     .catch(error => console.error('获取日志失败:', error));
             }
-            
+
             // 初始更新
             updateJobDetails();
-            
+
             // 每3秒更新一次
             setInterval(updateJobDetails, 3000);
         });

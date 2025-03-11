@@ -2,7 +2,6 @@ from typing import Dict, List, Union
 
 from app.agent.base import BaseAgent
 from app.flow.base import BaseFlow, FlowType
-from app.flow.planning import PlanningFlow
 
 
 class FlowFactory:
@@ -18,6 +17,7 @@ class FlowFactory:
         # 根据flow_type参数创建相应的flow
         if flow_type == FlowType.PLANNING:
             from app.flow.planning import PlanningFlow
+
             return PlanningFlow(agents, **kwargs)
         # ...other flow types...
         else:

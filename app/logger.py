@@ -1,8 +1,10 @@
 import os
+import sys
 import time
 from pathlib import Path
-import sys
+
 from loguru import logger
+
 
 # 获取项目根目录
 project_root = Path(__file__).parent.parent
@@ -17,7 +19,7 @@ log_file = os.environ.get("OPENMANUS_LOG_FILE")
 if not log_file:
     # 如果没有指定，检查是否有任务ID（从session或工作区目录名）
     task_id = os.environ.get("OPENMANUS_TASK_ID", "")
-    
+
     # 使用任务ID作为日志文件名，而不是使用日期时间格式
     if task_id:
         # 确保任务ID以job_开头
@@ -28,7 +30,7 @@ if not log_file:
         # 如果没有任务ID，使用时间戳创建一个job_ID格式的日志文件名
         job_id = f"job_{int(time.time())}"
         log_filename = f"{job_id}.log"
-    
+
     log_file = logs_dir / log_filename
 else:
     # 使用指定的日志文件
