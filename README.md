@@ -25,6 +25,7 @@ We're also excited to introduce [OpenManus-RL](https://github.com/OpenManus/Open
 ![OpenManus Web Interface](assets/interface.png)
 
 The web interface is developed by [@YunQiAI](https://github.com/YunQiAI).
+For more information, please refer to [app/web/README.md](app/web/README.md).
 
 ## Project Demo
 
@@ -119,7 +120,7 @@ api_key = "sk-..."  # Replace with your actual API key
 One line for run OpenManus:
 
 ```bash
-python main.py
+python main.py --web
 ```
 
 Then input your idea via terminal!
@@ -129,7 +130,11 @@ Then input your idea via terminal!
 You can also use OpenManus through a user-friendly web interface:
 
 ```bash
-python app/web/app.py
+uvicorn app.web.app:app --reload
+```
+or 
+```bash
+python web_run.py
 ```
 
 Then open your browser and navigate to `http://localhost:8000` to access the web interface. The web UI allows you to:

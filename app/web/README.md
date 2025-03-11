@@ -106,6 +106,10 @@ OpenManus Web界面分为两个主要部分:
 ```bash
 uvicorn app.web.app:app --reload
 ```
+或者
+```bash
+python web_run.py
+```
 
 ## 贡献
 
