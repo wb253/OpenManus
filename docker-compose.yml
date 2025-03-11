@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  openmanus:
+    image: openmanus
+    container_name: openmanus
+    volumes:
+      # 挂载 config 目录，以便在主机上编辑 config.toml
+      - ./config:/app/config
+    tty: true # 保持终端交互
+    stdin_open: true # 允许输入
+    ports:
+      - 7860:7860
+    networks:
+      - shared_network
+networks:
+  shared_network:
+    external: true

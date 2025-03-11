@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OpenManus Local Version</title>
+    <title>OpenManus</title>
     <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
     <div class="container">
         <div class="history-panel">
-            <h2>History Tasks</h2>
+            <h2>历史任务</h2>
             <div id="task-list" class="task-list"></div>
         </div>
 
         <div class="main-panel">
             <div id="task-container" class="task-container">
                 <div class="welcome-message">
-                    <h1>Welcome to OpenManus Local Version</h1>
-                    <p>Please enter a task prompt to start a new task</p>
+                    <h1>欢迎使用 OpenManus 本地版</h1>
+                    <p>请输入任务提示符以开始新任务</p>
                 </div>
                 <div id="log-container" class="step-container"></div>
             </div>
@@ -29,7 +29,7 @@
                     placeholder="Enter task prompt..."
                     onkeypress="if(event.keyCode === 13) createTask()"
                 >
-                <button onclick="createTask()">Create Task</button>
+                <button onclick="createTask()">创建任务</button>
             </div>
         </div>
     </div>

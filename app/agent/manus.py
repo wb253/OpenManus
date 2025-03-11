@@ -8,6 +8,23 @@ from app.tool.file_saver import FileSaver
 from app.tool.google_search import GoogleSearch
 from app.tool.python_execute import PythonExecute
 
+from app.tool.baidu_search import BaiduSearch
+
+from app.tool.bing_search import BingSearch
+from app.config import config
+
+def get_search_agent():
+    # 获取搜索代理配置
+    search_agent_config = config.llm["default"].search_agent_config
+    # 创建Bing搜索代理
+    search_agent = BingSearch()
+    if search_agent_config == "baidu":
+        search_agent = BaiduSearch()
+    #if search_agent_config == "bing":
+    #    search_agent = BingSearch()
+    if search_agent_config == "google":
+        search_agent = GoogleSearch()
+    return search_agent
 
 class Manus(ToolCallAgent):
     """
@@ -29,6 +46,6 @@ class Manus(ToolCallAgent):
     # Add general-purpose tools to the tool collection
     available_tools: ToolCollection = Field(
         default_factory=lambda: ToolCollection(
-            PythonExecute(), GoogleSearch(), BrowserUseTool(), FileSaver(), Terminate()
+            PythonExecute(), get_search_agent(), BrowserUseTool(), FileSaver(), Terminate()
         )
     )
