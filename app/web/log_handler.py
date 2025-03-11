@@ -21,9 +21,9 @@ class SessionLogHandler:
         
     def __call__(self, record):
         log_entry = {
-            "time": record["time"].strftime("%Y-%m-%d %H:%M:%S.%f"),
-            "level": record["level"].name,
-            "message": record["message"],
+            # "time": record["time"].strftime("%Y-%m-%d %H:%M:%S.%f"),
+            # "level": record["level"].name,
+            "message": record,
             "timestamp": datetime.now().timestamp()
         }
         
